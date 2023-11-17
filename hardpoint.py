@@ -110,19 +110,11 @@ def eq_stats(strategy_num):
     x = [payoff_calculator(strategies[strategy_num], strategies[j])[0] for j in range(368)]
     av_others.append((sum(x) - sum(br[1][1])) / (368 - br_num))
     av_anys.append(sum(x)/368)
-# print(sorted(br_times, key=lambda x: x[1]))
 for eq in eq_points:
     eq_stats(eq)
 print('Number of Equilibrium Points: ', len(eq_points))
-
-# Create a line plot
 plt.plot(eq_points, av_anys, marker='o', linestyle='-', color='purple')
-
-# Add labels and a title
 plt.xlabel('Strategy Number')
 plt.ylabel('Average Payoff vs All Strategies')
-# plt.title('Line Plot Example')
-
-# Show the plot
-plt.grid(True)  # Optional: Add gridlines
+plt.grid(True) 
 plt.show()
