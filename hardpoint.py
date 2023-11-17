@@ -85,7 +85,6 @@ all_best_responses = [best_response(strategies[i])[0] for i in range(368)]
 eq_points = []
 for i in range(368):
     if i in all_best_responses[i]:
-        print('Equilibria', i, '\n', strategies[i])
         eq_points.append(i)
 def times_best_response(strategy_number):
     count = 0
@@ -94,17 +93,14 @@ def times_best_response(strategy_number):
             count += 1
     return count
 br_times = [[j, times_best_response(j)] for j in range(368)]
-print(eq_points)
 br_nums = []
 av_brs = []
 av_others = []
 av_anys = []
 def eq_stats(strategy_num):
     br = (best_response(strategies[strategy_num]))
-    print('\n#### Strategy:', strategy_num)
     br_num = (len(br[0]))
     av_br = (sum(br[1][1]))/br_num
-    print(br_num, av_br)
     br_nums.append(br_num)
     av_brs.append(av_br)
     x = [payoff_calculator(strategies[strategy_num], strategies[j])[0] for j in range(368)]
